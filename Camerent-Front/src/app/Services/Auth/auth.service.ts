@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+  serverUrl = 'https://camerent-backend.herokuapp.com';
   constructor(private http:HttpClient, private _router:Router) { }
   // login call
   loginUser(data:any){
-   return this.http.post<any>('http://localhost:3210/login',{'userData':data})
+   return this.http.post<any>(this.serverUrl+'/login',{'userData':data})
   }
 
 // checking if a user is logged inn by gettin token and converting it to boolean( !! )
